@@ -1,0 +1,21 @@
+hostname sw-03
+
+enable password PassWord
+service password-encryption
+enable secret 5 SecRet
+
+interface Vlan1
+ ip address 192.168.1.1 255.255.255.0
+ no shutdown
+
+ip dhcp pool LAN
+ network 192.168.1.0 255.255.255.0
+ default-router 192.168.1.1
+
+ip dhcp excluded-address 192.168.1.1 192.168.1.99
+ip dhcp excluded-address 192.168.1.199 192.168.1.255
+
+line vty 0 4
+ login local
+
+username admin privilege 15 secret cisco
