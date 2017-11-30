@@ -1,0 +1,18 @@
+hostname sw-05
+
+ip routing
+
+interface GigabitEthernet1/0/1
+ switchport access vlan 42
+
+interface GigabitEthernet1/0/2
+ switchport access vlan 142
+
+interface Vlan42
+ ip address 192.168.42.7 255.255.255.0
+
+interface Vlan142
+ ip address 192.168.142.7 255.255.255.0
+
+no cdp run
+
