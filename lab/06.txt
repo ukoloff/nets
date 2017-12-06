@@ -1,0 +1,23 @@
+hostname ro-06-left
+
+interface GigabitEthernet0/0
+ ip address 192.168.142.130 255.255.255.128
+ no shutdown
+!
+interface GigabitEthernet0/1
+ ip address 192.168.42.2 255.255.255.0
+ no shutdown
+
+ip route 192.168.142.0 255.255.255.128 192.168.42.3 
+
+hostname ro-06-right
+
+interface GigabitEthernet0/0
+ ip address 192.168.42.3 255.255.255.0
+ no shutdown
+!
+interface GigabitEthernet0/1
+ ip address 192.168.142.2 255.255.255.128
+ no shutdown
+!
+ip route 192.168.142.128 255.255.255.128 192.168.42.2 
