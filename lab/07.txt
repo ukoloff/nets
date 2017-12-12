@@ -1,0 +1,62 @@
+hostname ro-07-A
+
+ip dhcp excluded-address 192.168.42.1 192.168.42.9
+
+ip dhcp pool A
+ network 192.168.42.0 255.255.255.192
+ default-router 192.168.42.1
+
+interface GigabitEthernet0/0
+ no shutdown
+ ip address 192.168.42.1 255.255.255.192
+ ip ospf 1 area 0
+
+interface GigabitEthernet0/1
+no shutdown
+ ip address 192.168.42.117 255.255.255.248
+ ip ospf 1 area 0
+
+router ospf 1
+ router-id 1.1.1.1
+
+hostname ro-07-B
+
+ip dhcp excluded-address 192.168.42.64 192.168.42.74
+
+ip dhcp pool B
+ network 192.168.42.64 255.255.255.224
+ default-router 192.168.42.65
+
+interface GigabitEthernet0/0
+ no shutdown
+ ip address 192.168.42.65 255.255.255.224
+ ip ospf 1 area 0
+
+interface GigabitEthernet0/1
+ no shutdown
+ ip address 192.168.42.118 255.255.255.248
+ ip ospf 1 area 0
+
+router ospf 1
+ router-id 2.2.2.2
+
+hostname ro-07-C
+
+ip dhcp excluded-address 192.168.42.96 192.168.42.100
+
+ip dhcp pool C
+ network 192.168.42.96 255.255.255.240
+ default-router 192.168.42.97
+
+interface GigabitEthernet0/0
+ no shutdown
+ ip address 192.168.42.97 255.255.255.240
+ ip ospf 1 area 0
+
+interface GigabitEthernet0/1
+ no shutdown
+ ip address 192.168.42.116 255.255.255.248
+ ip ospf 1 area 0
+
+router ospf 1
+ router-id 3.3.3.3
